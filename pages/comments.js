@@ -1,16 +1,6 @@
 import Head from 'next/head'
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 
-export default function Home() {
-  const [news, setNews] = useState([]);
-  useEffect(() => {
-    fetch('https://node-hnapi.herokuapp.com/news')
-      .then((res) => res.json())
-      .then((data) => {
-        setNews(data);
-      })
-  }, [])
+export default function Comment() {
 
   return (
     <div className="container">
@@ -25,22 +15,42 @@ export default function Home() {
         </h1>
 
         <div className="grid">
-          {
-
-          news.map((item, index) => (
-            <div key={index} className="notice">
-              <a href={item.url} target="_blank" className="title"><h3>{ item.title }</h3></a>
-              <div>
-                <span>{item.points} points</span>
-                <span>
-                  <Link href={`/comment/${item.id}`} target="_blank">
-                    <a className="comment"> - {item.comments_count} comments</a>
-                  </Link>
-                </span>
-              </div>
+          <div className="notice">
+            <a href="https://nextjs.org/docs" className="card"><h3>fist document</h3></a>
+            <div>
+              <span>157 point</span>
+              <span>- 120 comments</span>
             </div>
-          ))
-          }
+          </div>
+          <div className="notice">
+            <a href="https://nextjs.org/docs" className="card"><h3>fist document</h3></a>
+            <div>
+              <span>157 point</span>
+              <span>- 120 comments</span>
+            </div>
+          </div>
+          <div className="notice">
+            <a href="https://nextjs.org/docs" className="card"><h3>fist document</h3></a>
+            <div>
+              <span>157 point</span>
+              <span>- 120 comments</span>
+            </div>
+          </div>
+          <div className="notice">
+            <a href="https://nextjs.org/docs" className="card"><h3>fist document</h3></a>
+            <div>
+              <span>157 point</span>
+              <span>- 120 comments</span>
+            </div>
+          </div>
+          <div className="notice">
+            <a href="https://nextjs.org/docs" className="card"><h3>fist document</h3></a>
+            <div>
+              <span>157 point</span>
+              <span>- 120 comments</span>
+            </div>
+          </div>
+
         </div>
       </main>
 
@@ -98,6 +108,42 @@ export default function Home() {
           text-decoration: none;
         }
 
+        .title a {
+          color: #0070f3;
+          text-decoration: none;
+        }
+
+        .title a:hover,
+        .title a:focus,
+        .title a:active {
+          text-decoration: underline;
+        }
+
+        .title {
+          margin: 0;
+          line-height: 1.15;
+          font-size: 4rem;
+        }
+
+        .title,
+        .description {
+          text-align: center;
+        }
+
+        .description {
+          line-height: 1.5;
+          font-size: 1.5rem;
+        }
+
+        code {
+          background: #fafafa;
+          border-radius: 5px;
+          padding: 0.75rem;
+          font-size: 1.1rem;
+          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+        }
+
         .grid {
           display: flex;
           flex-direction: column;
@@ -110,18 +156,19 @@ export default function Home() {
         margin-bottom: 10px;
         }
 
-        .title h3 {
-          color: blue;
-        }
-
-        .comment {
-        color: teal
+        .card {
+          margin: 0;
+          padding: 0;
         }
 
         h3 {
           margin: 0;
           padding: 0;
 
+        }
+
+        .logo {
+          height: 1em;
         }
 
         @media (max-width: 600px) {
